@@ -5,7 +5,7 @@ import MovieListEntry from './MovieListEntry.jsx'
 const MovieList = (props) => {
     if(props.movies.length === 0){
        return (
-           <div><p>No movie by that name!</p></div>
+           <div><h3>No movies at this time!</h3></div>
        )
     } 
     return (

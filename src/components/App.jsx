@@ -6,9 +6,13 @@ import Search from './Search.jsx'
 class App extends React.Component {
     constructor(props){
         super(props)
-        this.state = {input:''}
+        this.state = {
+            input:'',
+            movies: [],
+        }
         this.onSearchClick = this.onSearchClick.bind(this);
         this.onBackClick = this.onBackClick.bind(this);
+        this.onAddMovie = this.onAddMovie.bind(this);
     }
 
     onSearchClick() {
@@ -23,12 +27,23 @@ class App extends React.Component {
         })
     }
 
+onAddMovie(){
+    let movieTitles = this.state.movies.map(movie=>movie.title.toLowerCase());
+    if(!movieTitles.includes(addMovie.value.toLowerCase())){
+        this.setState({
+            movies: [...this.state.movies, {title: addMovie.value}],
+        });
+    } else {
+        alert('Movie has already been added.')
+    }
+}
+
     render() {
         return (
         <div>
             <h2>My Awesome Movie List Table</h2> 
-            <Search handleSearch={this.onSearchClick} handleBack={this.onBackClick}/>
-            <MovieList movies={movies.filter(movie => movie.title.toLowerCase().includes(this.state.input))} />
+            <Search handleSearch={this.onSearchClick} handleBack={this.onBackClick} handleAddMovie={this.onAddMovie} />
+            <MovieList movies={this.state.movies.filter(movie => movie.title.toLowerCase().includes(this.state.input))}/>
         </div>
         )
     }
