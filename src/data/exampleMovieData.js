@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 // var movies = [
 //     {title: 'Mean Girls'},
@@ -9,9 +9,18 @@ import React from 'react'
 //   ];
 
 
-var movies = [
-]
+const prettitfyTitle = (string) => {
+  let strings = string.split(' '); 
+  let result = ''
+  for(string of strings){
+    let prettyWord = string[0].toUpperCase() + string.slice(1); 
+    result += prettyWord + ' ';
+  }
+  return result.trim(); 
+}
+
+console.log(prettitfyTitle("romy and michelle's high school reunion"));
 
   // console.log(movies.filter(movie => movie.title.includes('S')));
 
-  export default movies; 
+  // export default prettitfyTitle; 
