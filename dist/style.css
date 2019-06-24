@@ -1,0 +1,33 @@
+html {
+    background: url(MovieListImage.jpg) no-repeat center center fixed; 
+    background-size: cover;
+}
+
+body {
+    margin-left: 50px;
+}
+
+
+h2 {
+    font-size: 30px;
+}
+
+form {
+    font-size: 15px;
+    margin-bottom: 10px; 
+}
+
+table{
+    align-content: center;
+}
+
+th{
+    font-size: 25px;
+}
+
+td {
+    border: 3px solid #333;
+    padding: 10px; 
+    background-color: white;
+
+}
