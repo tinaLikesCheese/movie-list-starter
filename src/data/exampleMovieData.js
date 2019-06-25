@@ -19,7 +19,6 @@ const prettitfyTitle = (string) => {
   return result.trim(); 
 }
 
-console.log(prettitfyTitle("romy and michelle's high school reunion"));
 
   // console.log(movies.filter(movie => movie.title.includes('S')));
 

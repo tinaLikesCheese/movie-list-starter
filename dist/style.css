@@ -72,11 +72,6 @@ form {
     margin: 0px auto; 
     margin-top: 20px;
 }
-    
-
-th{
-    font-size: 25px;
-}
 
 td {
     /* border: 1px solid #333; */
@@ -85,6 +80,7 @@ td {
     border-radius: 5px;
     width: 500px;
     font-weight: bold;
+    font-size: 25px;
     /* width: 400px; */
 }
 
@@ -96,7 +92,7 @@ button {
     border-radius: 10px;
     text-decoration: none;
     margin-right: 10px;
-    font-family: 'Permanent Marker', cursive;
+    /* font-family: 'Permanent Marker', cursive; */
 }
 
 .watchBtn {
@@ -108,24 +104,26 @@ button {
     margin-left:15px;
     background-color:  rgba(216, 5, 5, 0.75);
     color: black;
-    /* font-family: 'Permanent Marker', cursive; */
+    font-family: 'Permanent Marker', cursive;
 
 }
 
 .watch{
     font-size: 15px;
+    margin-top: 10px;
     margin-left: 10px;
     background-color: green;
-    font-weight:lighter;
+    /* font-weight:lighter; */
     float: right;
     /* background-color:  rgba(216, 5, 5, 0.5) */
 }
 
 .willWatch{
     font-size: 15px;
+    margin-top: 10px;
     margin-left: 10px;
     background-color: white;
-    font-weight:lighter;
+    /* font-weight:lighter; */
     float: right;
 }
 
