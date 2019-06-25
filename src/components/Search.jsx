@@ -8,7 +8,7 @@ class Search extends React.Component {
     handleSubmit(e, callback) {
         e.preventDefault();
         if(addMovie.value.length===0){
-            alert('Enter a movie you fucker!')
+            alert('Enter a movie in please')
             return;
         }
         callback();

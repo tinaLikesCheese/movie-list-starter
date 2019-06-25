@@ -28,16 +28,16 @@ class App extends React.Component {
         })
     }
 
-onAddMovie(){
-    let movieTitles = this.state.movies.map(movie=>movie.title.toLowerCase());
-    if(!movieTitles.includes(addMovie.value.toLowerCase())){
-        this.setState({
-            movies: [...this.state.movies, {title: addMovie.value}],
-        });
-    } else {
-        alert('Movie has already been added.')
+    onAddMovie(){
+        let movieTitles = this.state.movies.map(movie=>movie.title.toLowerCase());
+        if(!movieTitles.includes(addMovie.value.toLowerCase())){
+            this.setState({
+                movies: [...this.state.movies, {title: addMovie.value}],
+            });
+        } else {
+            alert('Movie has already been added.')
+        }
     }
-}
 
     render() {
         return (
