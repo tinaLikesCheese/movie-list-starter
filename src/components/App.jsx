@@ -10,7 +10,7 @@ class App extends React.Component {
             input:'',
             movies: [],
             watched: [],
-            toWatch: true
+            toWatch: true,
         }
         this.onSearchClick = this.onSearchClick.bind(this);
         this.onBackClick = this.onBackClick.bind(this);
@@ -51,12 +51,12 @@ class App extends React.Component {
         let movieTitles = this.state.watched.map(movie=>movie.title.toLowerCase());
         if(!movieTitles.includes(name.toLowerCase())){
             this.setState({
-                movies: [...this.state.watched].filter(movie => movie.title !==name),
                 watched: [...this.state.watched, {title: name}]
+                // movies: [...this.state.movies].filter(m => m.title !==name),
             });
         } else {
             this.setState({
-                movies: [...this.state.watched, {title: name}],
+                // movies: [...this.state.movies, {title: name}],
                 watched: [...this.state.watched].filter(movie => movie.title !==name)
             })
         }
@@ -75,11 +75,17 @@ class App extends React.Component {
     }
 
     render() {
+        
+        if (this.state.toWatch === false){
+            var films = this.state.watched.filter(movie => movie.title.toLowerCase().includes(this.state.input));
+        } else { 
+            var films = this.state.movies.filter(movie => movie.title.toLowerCase().includes(this.state.input));
+        }
         return (
         <div>
             <h2>Movie List</h2> 
             <Search handleWatch={this.onWatch} handleToWatch={this.onToWatch} handleSearch={this.onSearchClick} handleBack={this.onBackClick} handleAddMovie={this.onAddMovie} />
-            <MovieList handleWatched={this.onWatchClick} movies={this.state.movies.filter(movie => movie.title.toLowerCase().includes(this.state.input))}/>
+            <MovieList handleWatched={this.onWatchClick} movies={films}/>
         </div>
         )
     }
