@@ -22,6 +22,8 @@ class Search extends React.Component {
                     <button type="submit" onClick={(e) => this.handleSubmit(e,this.props.handleSearch)}> Search </button>
                     <button type="submit" onClick={(e) => this.handleSubmit(e, this.props.handleBack)}> Back </button>
                 </form>
+                <p><button type="submit" className="watchBtn"> WATCHED </button><button type="submit" className="watchBtn"> TO WATCH </button></p>
+
             </div>)
     }
 }
