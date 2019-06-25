@@ -51,12 +51,12 @@ class App extends React.Component {
         let movieTitles = this.state.watched.map(movie=>movie.title.toLowerCase());
         if(!movieTitles.includes(name.toLowerCase())){
             this.setState({
-                watched: [...this.state.watched, {title: name}]
-                // movies: [...this.state.movies].filter(m => m.title !==name),
+                watched: [...this.state.watched, {title: name}],
+                movies: [...this.state.movies].filter(m => m.title !==name)
             });
         } else {
             this.setState({
-                // movies: [...this.state.movies, {title: name}],
+                movies: [...this.state.movies, {title: name}],
                 watched: [...this.state.watched].filter(movie => movie.title !==name)
             })
         }

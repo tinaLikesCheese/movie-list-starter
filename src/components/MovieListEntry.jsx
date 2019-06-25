@@ -3,7 +3,7 @@ import React from 'react';
 class MovieListEntry extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {isToggleOn: false}
+        this.state = {isToggleOn: true}
         // this.handleClick = this.handleClick.bind(this);
     }
 
@@ -24,7 +24,7 @@ class MovieListEntry extends React.Component {
         }
         return (
             <tr>
-                <td>{this.props.name}<button className={watch} onClick={()=>this.handleClick(this.props.handleWatched)} > Watched </button></td>
+                <td>{this.props.name}<button className={watch} onClick={()=>this.handleClick(this.props.handleWatched)}> Watched </button></td>
             </tr>
         )
     }
