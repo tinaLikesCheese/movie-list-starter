@@ -14,6 +14,7 @@ class App extends React.Component {
         this.onSearchClick = this.onSearchClick.bind(this);
         this.onBackClick = this.onBackClick.bind(this);
         this.onAddMovie = this.onAddMovie.bind(this);
+        this.onWatchClick = this.onWatchClick.bind(this);
     }
 
     onSearchClick() {
@@ -29,6 +30,10 @@ class App extends React.Component {
     }
 
     onAddMovie(){
+        if(addMovie.value.length===0){
+            alert('Enter a movie in please')
+            return;
+        }
         let movieTitles = this.state.movies.map(movie=>movie.title.toLowerCase());
         if(!movieTitles.includes(addMovie.value.toLowerCase())){
             this.setState({
@@ -39,12 +44,25 @@ class App extends React.Component {
         }
     }
 
+    onWatchClick(name){
+        let movieTitles = this.state.watched.map(movie=>movie.title.toLowerCase());
+        if(!movieTitles.includes(name.toLowerCase())){
+            this.setState({
+                watched: [...this.state.watched, {title: name}],
+            });
+        } else {
+            this.setState({
+                watched: [...this.state.watched].filter(movie => movie.title !==name)
+            })
+        }
+    }
+
     render() {
         return (
         <div>
             <h2>Movie List</h2> 
             <Search handleSearch={this.onSearchClick} handleBack={this.onBackClick} handleAddMovie={this.onAddMovie} />
-            <MovieList movies={this.state.movies.filter(movie => movie.title.toLowerCase().includes(this.state.input))}/>
+            <MovieList handleWatched={this.onWatchClick} movies={this.state.movies.filter(movie => movie.title.toLowerCase().includes(this.state.input))}/>
         </div>
         )
     }

@@ -54,7 +54,8 @@ td {
     border: 1px solid #333;
     padding: 10px; 
     background-color: rgba(241, 236, 238, 0.5);
-
+    border-radius: 5px;
+    /* width: 400px; */
 }
 
 button {
@@ -68,8 +69,16 @@ button {
 }
 
 .watch{
-    font-size: 20px;
-    background-color:  rgba(216, 5, 5, 0.5)
+    font-size: 15px;
+    margin-left: 10px;
+    background-color: green;
+    /* background-color:  rgba(216, 5, 5, 0.5) */
+}
+
+.willWatch{
+    font-size: 15px;
+    margin-left: 10px;
+    background-color: white;
 }
 
 input{
