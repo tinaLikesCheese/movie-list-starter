@@ -5,18 +5,18 @@ import MovieListEntry from './MovieListEntry.jsx'
 const MovieList = (props) => {
     if(props.movies.length === 0){
        return (
-           <div><h3>No movies at this time!</h3></div>
+           <div><h4>No movies at this time</h4></div>
        )
     } 
     return (
     <div>
-        <table>  
+        <table class="centerTable">  
             <tbody>
             {props.movies.map((movie) =>
             <MovieListEntry name={movie.title}/>)}
             </tbody>
         </table>
     </div>
-    )};
+    )}
 
 export default MovieList; 

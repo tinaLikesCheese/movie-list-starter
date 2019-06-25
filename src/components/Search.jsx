@@ -7,20 +7,24 @@ class Search extends React.Component {
 
     handleSubmit(e, callback) {
         e.preventDefault();
+        if(addMovie.value.length===0){
+            alert('Enter a movie you fucker!')
+            return;
+        }
         callback();
+        search.value='';
+        addMovie.value='';
     }
 
     render() {
         return (
-            <div>
+            <div className='NavBar'>
                 <form> 
-                    <p><label>Add Movie</label></p>
-                    <input type="text" id="addMovie"></input>
-                    <p> <button type="submit" onClick={(e) => this.handleSubmit(e,this.props.handleAddMovie)}> Add a Movie </button> </p>
-                    <p><label>Search</label></p>
+                    <input type="text" name="movie" id="addMovie"></input>
+                    <button type="submit" onClick={(e) => this.handleSubmit(e,this.props.handleAddMovie)}> Add a Movie </button>
                     <input type="text" name="search" id="search"></input>
-                    <p> <button type="submit" onClick={(e) => this.handleSubmit(e,this.props.handleSearch)}> Search </button> </p>
-                    <p> <button type="submit" onClick={(e) => this.handleSubmit(e, this.props.handleBack)}> Back </button> </p>
+                    <button type="submit" onClick={(e) => this.handleSubmit(e,this.props.handleSearch)}> Search </button>
+                    <button type="submit" onClick={(e) => this.handleSubmit(e, this.props.handleBack)}> Back </button>
                 </form>
             </div>)
     }

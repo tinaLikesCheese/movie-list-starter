@@ -4,12 +4,36 @@ html {
 }
 
 body {
+    margin-top: 50px;
     margin-left: 50px;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 
 h2 {
-    font-size: 30px;
+    font-size: 45px;
+    font-weight:bold;
+    margin-left: 0px;
+    margin-right:0px;
+    margin-top: 150px;
+    margin-bottom:15px;
+    text-align: center;
+    color:black;
+}
+
+h4{
+    font-size:30px;
+    font-weight:bold;
+    color: darkred;
+    margin-top: 50px;
+    margin-bottom:0px;
+    padding-bottom:0px;  
+    text-align: center;  
+}
+
+
+.NavBar {
+    text-align: center;
 }
 
 form {
@@ -17,16 +41,39 @@ form {
     margin-bottom: 10px; 
 }
 
-table{
-    align-content: center;
+.centerTable{
+    margin: 0px auto; 
 }
+    
 
 th{
     font-size: 25px;
 }
 
 td {
-    border: 3px solid #333;
+    border: 1px solid #333;
     padding: 10px; 
+    background-color: rgba(241, 236, 238, 0.5);
 
+}
+
+button {
+	font-size: 15px;
+	background-color: rgba(241, 236, 238, 0.5);
+	font-weight: bold;
+	color:  black; 
+    border-radius: 10px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.watch{
+    font-size: 20px;
+    background-color:  rgba(216, 5, 5, 0.5)
+}
+
+input{
+    height:20px;
+    font-size:14pt;
+    margin-right:10px;
 }

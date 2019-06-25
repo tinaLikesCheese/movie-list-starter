@@ -9,6 +9,7 @@ class App extends React.Component {
         this.state = {
             input:'',
             movies: [],
+            watched: [],
         }
         this.onSearchClick = this.onSearchClick.bind(this);
         this.onBackClick = this.onBackClick.bind(this);
@@ -41,7 +42,7 @@ onAddMovie(){
     render() {
         return (
         <div>
-            <h2>My Awesome Movie List Table</h2> 
+            <h2>Movie List</h2> 
             <Search handleSearch={this.onSearchClick} handleBack={this.onBackClick} handleAddMovie={this.onAddMovie} />
             <MovieList movies={this.state.movies.filter(movie => movie.title.toLowerCase().includes(this.state.input))}/>
         </div>
