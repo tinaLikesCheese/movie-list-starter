@@ -118,6 +118,7 @@ button {
     /* background-color:  rgba(216, 5, 5, 0.5) */
 }
 
+
 .willWatch{
     font-size: 15px;
     margin-top: 10px;
@@ -131,4 +132,9 @@ input{
     height:20px;
     font-size:14pt;
     margin-right:10px;
+}
+
+.movieTitle{
+    text-decoration: none;
+    color: black;
 }

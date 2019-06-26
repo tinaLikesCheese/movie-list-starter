@@ -18,7 +18,7 @@ handleClick(callback) {
        text = "X Watched"
     } else{
         watch = "willWatch"
-        text ="Watched "
+        text ="O Watched "
     }
       return(
           <button className={watch} onClick={()=>this.handleClick(this.props.handleWatched)}> {text} </button>
