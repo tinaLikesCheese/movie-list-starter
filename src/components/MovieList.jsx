@@ -13,7 +13,7 @@ const MovieList = (props) => {
         <table className="centerTable">  
             <tbody>
             {props.movies.map((movie) =>
-            <MovieListEntry name={movie.title} handleWatched={props.handleWatched}/>)}
+            <MovieListEntry movie={movie} key={movie.id} handleWatched={props.handleWatched}/>)}
             </tbody>
         </table>
     </div>

@@ -5,10 +5,9 @@ class MovieListEntry extends React.Component {
 
 
     render() {
-
         return (
             <tr>
-                <td>{this.props.name} <Button name={this.props.name} handleWatched={this.props.handleWatched}/> </td>
+                <td>{this.props.movie.title} <Button movie={this.props.movie} handleWatched={this.props.handleWatched}/> </td>
             </tr>
         )
     }

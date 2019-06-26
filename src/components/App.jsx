@@ -9,7 +9,8 @@ class App extends React.Component {
         this.state = {
             input:'',
             movies: [],
-            toWatch: true,
+            watched: false,
+            currKey: 0,
         }
         this.onSearchClick = this.onSearchClick.bind(this);
         this.onBackClick = this.onBackClick.bind(this);
@@ -32,14 +33,15 @@ class App extends React.Component {
     }
 
     onAddMovie(){
-        if(addMovie.value.length===0){
+        if(!addMovie.value.length){
             alert('Enter a movie in please')
             return;
         }
         let movieTitles = this.state.movies.map(movie=>movie.title.toLowerCase());
         if(!movieTitles.includes(addMovie.value.toLowerCase())){
             this.setState({
-                movies: [...this.state.movies, {title: addMovie.value, watched: false}],
+                movies: [...this.state.movies, {title: addMovie.value, watched: false, id: this.state.currKey}],
+                currKey: this.state.currKey + 1
             });
         } else {
             alert('Movie has already been added.')
@@ -52,7 +54,6 @@ class App extends React.Component {
             if (movie.title === name){
                 movie.watched = !movie.watched;
                 movies.push(movie);
-                console.log('movie: ',movie)
             } else {
                 movies.push(movie);
             }
@@ -64,23 +65,28 @@ class App extends React.Component {
 
     onToWatch(){
         this.setState({
-            toWatch: true
+            watched: false
         })
     }
 
     onWatch(){
         this.setState({
-            toWatch: false
+            watched: true
         })
     }
 
     render() {
-
+        var movies;
+        if(this.state.watched){
+            movies = this.state.movies.filter(movie=>movie.watched); 
+        }else if(!this.state.watched){
+            movies = this.state.movies.filter(movie=>movie.watched===false); 
+        }
         return (
         <div>
             <h2>Movie List</h2> 
             <Search handleWatch={this.onWatch} handleToWatch={this.onToWatch} handleSearch={this.onSearchClick} handleBack={this.onBackClick} handleAddMovie={this.onAddMovie} />
-            <MovieList handleWatched={this.onWatchClick} movies={this.state.movies.filter(movie => movie.title.toLowerCase().includes(this.state.input))}/>
+            <MovieList handleWatched={this.onWatchClick} movies={movies.filter(movie => movie.title.toLowerCase().includes(this.state.input))}/>
         </div>
         )
     }

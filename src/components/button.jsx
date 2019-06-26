@@ -3,28 +3,31 @@ import React from 'react';
 class Button extends React.Component {
     constructor(props) {
     super(props)
-    this.state = {isToggleOn: true}
 }
 
 handleClick(callback) {
-    var name = this.props.name;
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
-    }));
+    var name = this.props.movie.title;
     callback(name)
   }
   
   render(){
     var watch;
-    if(this.state.isToggleOn === true){
+    var text;
+    if(this.props.movie.watched){
        watch =  "watch"
+       text = "X Watched"
     } else{
         watch = "willWatch"
+        text ="Watched "
     }
       return(
-          <button className={watch} onClick={()=>this.handleClick(this.props.handleWatched)}> Watched </button>
+          <button className={watch} onClick={()=>this.handleClick(this.props.handleWatched)}> {text} </button>
       )
   }
 }
 
 export default Button; 
+
+
+
+
