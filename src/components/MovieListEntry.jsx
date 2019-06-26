@@ -1,30 +1,14 @@
 import React from 'react';
+import Button from './button.jsx'
 
 class MovieListEntry extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {isToggleOn: true}
-        // this.handleClick = this.handleClick.bind(this);
-    }
 
-    handleClick(callback) {
-        var name = this.props.name;
-        this.setState(state => ({
-          isToggleOn: !state.isToggleOn
-        }));
-        callback(name)
-      }
 
     render() {
-        var watch;
-        if(this.state.isToggleOn === true){
-           watch =  "watch"
-        } else{
-            watch = "willWatch"
-        }
+
         return (
             <tr>
-                <td>{this.props.name}<button className={watch} onClick={()=>this.handleClick(this.props.handleWatched)}> Watched </button></td>
+                <td>{this.props.name} <Button name={this.props.name} handleWatched={this.props.handleWatched}/> </td>
             </tr>
         )
     }
