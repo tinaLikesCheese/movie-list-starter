@@ -6,18 +6,26 @@ class MovieListEntry extends React.Component {
         super(props)
     }
 
-    handleMovieClick(e){
+    handleMovieClick(e, callback){
+        var name = this.props.movie.title
         e.preventDefault();
-        alert('hello');
+        callback(name); 
     }
 
-
     render() {
-        return (
+        if(this.props.movie.expanded){
+            return(
             <tr>
-                <td><a href=" " onClick={(e)=>this.handleMovieClick(e)} className="movieTitle">{this.props.movie.title}</a><Button movie={this.props.movie} handleWatched={this.props.handleWatched}/> </td>
-            </tr>
-        )
+                <td><a href=" " onClick={(e)=>this.handleMovieClick(e, this.props.handleMovieData)} className="movieTitle">{this.props.movie.title} Expanded</a><Button movie={this.props.movie} handleWatched={this.props.handleWatched}/></td>
+            </tr>   
+            )
+        } else {
+            return (
+                <tr>
+                    <td><a href=" " onClick={(e)=>this.handleMovieClick(e, this.props.handleMovieData)} className="movieTitle">{this.props.movie.title}</a><Button movie={this.props.movie} handleWatched={this.props.handleWatched}/></td>
+                </tr>           
+            )
+        }
     }
 }
 
