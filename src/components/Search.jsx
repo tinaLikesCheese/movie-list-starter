@@ -11,8 +11,9 @@ class Search extends React.Component {
     }
 
     handleSubmit(e, callback) {
+        console.log('movie: ',this.state.movie)
         e.preventDefault();
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d3d0044fac0806aa388e4ee13d415f04&language=en-US&query=${addMovie.value}&page=1&include_adult=false`)
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d3d0044fac0806aa388e4ee13d415f04&language=en-US&query=${this.state.movie}&page=1&include_adult=false`)
         .then(({data}) => callback(data.results[0]))
         .catch(console.log);
     }

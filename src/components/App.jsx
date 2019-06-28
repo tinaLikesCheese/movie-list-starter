@@ -34,10 +34,9 @@ class App extends React.Component {
     }
 
     onAddMovie(movie){
-        console.log(movie);
         const {title, release_date, vote_average, overview, poster_path} = movie;
         if(!addMovie.value.length){
-            alert('Enter a movie in please')
+            alert('Enter a movie please')
             return;
         }
         let movieTitles = this.state.movies.map(movie=>movie.title.toLowerCase());
