@@ -1,6 +1,5 @@
 import React from 'react';
 import MovieList from './MovieList.jsx'
-import movies from '../data/exampleMovieData.js'
 import Search from './Search.jsx'
   
 class App extends React.Component {
@@ -25,6 +24,7 @@ class App extends React.Component {
         this.setState({
         input: search.value.toLowerCase()
         });
+        search.value='';
     }
 
     onBackClick(){
@@ -33,20 +33,23 @@ class App extends React.Component {
         })
     }
 
-    onAddMovie(){
+    onAddMovie(movie){
+        console.log(movie);
+        const {title, release_date, vote_average} = movie;
         if(!addMovie.value.length){
             alert('Enter a movie in please')
             return;
         }
         let movieTitles = this.state.movies.map(movie=>movie.title.toLowerCase());
-        if(!movieTitles.includes(addMovie.value.toLowerCase())){
+        if(!movieTitles.includes(title.toLowerCase())){
             this.setState({
-                movies: [...this.state.movies, {title: addMovie.value, watched: false, expanded: false, id: this.state.currKey}],
+                movies: [...this.state.movies, {title: title, watched: false, expanded: false, id: this.state.currKey, year: release_date, score: vote_average}],
                 currKey: this.state.currKey + 1
             });
         } else {
             alert('Movie has already been added.')
         }
+        addMovie.value=''
     }
 
     onWatchClick(name){
@@ -54,6 +57,7 @@ class App extends React.Component {
         for (let movie of this.state.movies) {
             if (movie.title === name){
                 movie.watched = !movie.watched;
+                movie.expanded = false;
                 movies.push(movie);
             } else {
                 movies.push(movie);

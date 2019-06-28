@@ -16,13 +16,19 @@ class MovieListEntry extends React.Component {
         if(this.props.movie.expanded){
             return(
             <tr>
-                <td><a href=" " onClick={(e)=>this.handleMovieClick(e, this.props.handleMovieData)} className="movieTitle">{this.props.movie.title} Expanded</a><Button movie={this.props.movie} handleWatched={this.props.handleWatched}/></td>
+                <td>
+                    <p><a href=" " onClick={(e)=>this.handleMovieClick(e, this.props.handleMovieData)} className="movieTitle">{this.props.movie.title} Expanded</a></p>
+                    <p>Year: {this.props.movie.year}</p>
+                    <p>Rating: {this.props.movie.score} </p> 
+                    <p>imdbRating: Num</p>
+                    <Button movie={this.props.movie} handleWatched={this.props.handleWatched}/>
+                </td>
             </tr>   
             )
         } else {
             return (
                 <tr>
-                    <td><a href=" " onClick={(e)=>this.handleMovieClick(e, this.props.handleMovieData)} className="movieTitle">{this.props.movie.title}</a><Button movie={this.props.movie} handleWatched={this.props.handleWatched}/></td>
+                    <td><a href=" " onClick={(e)=>this.handleMovieClick(e, this.props.handleMovieData)} className="movieTitle">{this.props.movie.title}</a></td>
                 </tr>           
             )
         }
