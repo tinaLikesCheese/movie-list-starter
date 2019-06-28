@@ -17,10 +17,13 @@ class MovieListEntry extends React.Component {
             return(
             <tr>
                 <td>
-                    <p><a href=" " onClick={(e)=>this.handleMovieClick(e, this.props.handleMovieData)} className="movieTitle">{this.props.movie.title} Expanded</a></p>
+                    <img src={`https://image.tmdb.org/t/p/w200${this.props.movie.poster}`}/>
+                    <a href=" " onClick={(e)=>this.handleMovieClick(e, this.props.handleMovieData)} className="movieTitle">{this.props.movie.title}</a>
+                    <p>Description: {this.props.movie.description}</p>
+                    <br/>
                     <p>Year: {this.props.movie.year}</p>
                     <p>Rating: {this.props.movie.score} </p> 
-                    <p>imdbRating: Num</p>
+                    <br/>
                     <Button movie={this.props.movie} handleWatched={this.props.handleWatched}/>
                 </td>
             </tr>   
