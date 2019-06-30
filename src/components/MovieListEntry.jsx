@@ -22,7 +22,7 @@ class MovieListEntry extends React.Component {
                     <p>Description: {this.props.movie.description}</p>
                     <br/>
                     <p>Year: {this.props.movie.year}</p>
-                    <p>Rating: {this.props.movie.score} </p> 
+                    <p>Score: {this.props.movie.score} </p> 
                     <br/>
                     <Button movie={this.props.movie} handleWatched={this.props.handleWatched}/>
                 </td>

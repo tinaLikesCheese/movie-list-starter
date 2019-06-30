@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieList from './MovieList.jsx'
 import Search from './Search.jsx'
+import axios from 'axios'
   
 class App extends React.Component {
     constructor(props){
@@ -18,8 +19,20 @@ class App extends React.Component {
         this.onWatch = this.onWatch.bind(this);
         this.onToWatch = this.onToWatch.bind(this);
         this.onMovieClick = this.onMovieClick.bind(this);
+        this.getMovies = this.getMovies.bind(this);
     }
 
+    // componentDidMount() {
+    //     this.getMovies();
+    // }
+
+
+    getMovies() {
+        axios.get('/movies')
+        .then(({data})=> console.log(data))
+        .catch(console.log);
+    }
+    
     onSearchClick() {
         this.setState({
         input: search.value.toLowerCase()
@@ -42,7 +55,7 @@ class App extends React.Component {
         let movieTitles = this.state.movies.map(movie=>movie.title.toLowerCase());
         if(!movieTitles.includes(title.toLowerCase())){
             this.setState({
-                movies: [...this.state.movies, {title: title, watched: false, expanded: false, id: this.state.currKey, year: release_date, score: vote_average, description: overview, poster: poster_path}],
+                movies: [...this.state.movies, {title: title, watched: false, expanded: false, id: this.state.currKey, year: release_date.slice(0,4), score: vote_average, description: overview, poster: poster_path}],
                 currKey: this.state.currKey + 1
             });
         } else {
@@ -105,6 +118,7 @@ class App extends React.Component {
         <div>
             <h2>Movie List</h2> 
             <Search handleWatch={this.onWatch} handleToWatch={this.onToWatch} handleSearch={this.onSearchClick} handleBack={this.onBackClick} handleAddMovie={this.onAddMovie} />
+            <button onClick={this.getMovies}>Click Me</button>
             <MovieList handleMovieData={this.onMovieClick} handleWatched={this.onWatchClick} movies={movies.filter(movie => movie.title.toLowerCase().includes(this.state.input))}/>
         </div>
         )
